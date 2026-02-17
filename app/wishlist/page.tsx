@@ -8,12 +8,12 @@ import { toast } from "sonner";
 import { removeItemFromWishlist } from "../_actions/removeItemFromWishList.action";
 
 export default function WishlistPage() {
-  let data = useContext(wishlistContext);
+  let data: any = useContext(wishlistContext);
   console.log("Data From Wishlist", data);
 
   //   const route = useRouter();
 
-  async function removeItem(id) {
+  async function removeItem(id: string) {
     toast.promise(removeItemFromWishlist(id), {
       loading: "Loading...",
       success: async () => {
@@ -54,7 +54,7 @@ export default function WishlistPage() {
             <div className="bg-white shadow sm:rounded-lg overflow-hidden border border-gray-200">
               {data.wishlist && data.wishlist.data.length > 0 ? (
                 <ul role="list" className="divide-y divide-gray-200">
-                  {data.wishlist.data.map((item) => (
+                  {data.wishlist.data.map((item: any) => (
                     <li
                       key={item.id}
                       className="p-6 flex flex-col sm:flex-row sm:items-center gap-6 hover:bg-gray-50 transition my-2"

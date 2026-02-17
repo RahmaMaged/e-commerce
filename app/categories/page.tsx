@@ -10,7 +10,7 @@ export default async function Page() {
         All Categories
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {categories.map((category) => (
+        {categories.map((category: any) => (
           <div
             key={category._id}
             className="p-4 border rounded-md shadow-sm text-center bg-emerald-100 cursor-pointer"

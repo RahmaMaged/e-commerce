@@ -11,23 +11,13 @@ type CartBtnProps = {
 };
 
 export default function AddToCartBtn({ productId }: CartBtnProps) {
-  let cartData = useContext(cartContext);
+  let cartData: any = useContext(cartContext);
 
   const [loading, setLoading] = useState(false);
   async function addToCart() {
     console.log("click", productId);
 
     setLoading(true);
-
-    // let { data } = await axios.post(
-    //   "http://localhost:3000/api/hamada",
-    //   { productId },
-    //   {
-    //     headers: {
-    //       token: "hhh",
-    //     },
-    //   },
-    // );
 
     let data = await addItemToCart(productId);
 

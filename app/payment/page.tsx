@@ -22,7 +22,7 @@ export default function page() {
     resolver: zodResolver(paymentSchema),
   });
 
-  const cart = useContext(cartContext);
+  const cart: any = useContext(cartContext);
 
   console.log("Cart Details", cart);
 

@@ -11,7 +11,7 @@ type WishlistBtnProps = {
 };
 
 export default function AddToWishlistBtn({ productId }: WishlistBtnProps) {
-  let wishlistData = useContext(wishlistContext);
+  let wishlistData: any = useContext(wishlistContext);
 
   const [loading, setLoading] = useState(false);
   async function addTowishList() {
@@ -28,7 +28,6 @@ export default function AddToWishlistBtn({ productId }: WishlistBtnProps) {
         position: "top-center",
       });
       wishlistData.getData();
-      //   cartData.setNumOfCartItems(data.numOfCartItems);
     }
 
     setLoading(false);

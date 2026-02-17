@@ -12,11 +12,9 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const session = useSession();
 
-  let data = useContext(cartContext);
+  let data: any = useContext(cartContext);
 
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // console.log("numOfCartItems", numOfCartItems);
 
   function handleLogout() {
     signOut({ redirect: true, callbackUrl: "/login" });

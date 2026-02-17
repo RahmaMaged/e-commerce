@@ -11,12 +11,12 @@ import { clearCart } from "../_actions/clearCart.action";
 import { deleteItem } from "../_actions/deleteItem.action";
 
 export default function CartPage() {
-  let data = useContext(cartContext);
+  let data: any = useContext(cartContext);
 
   console.log("Products From Cart", data.products);
 
   const route = useRouter();
-  async function updateItemCount(id, count) {
+  async function updateItemCount(id: string, count: number) {
     // const newData = await UpdateCartItem(id, count);
     toast.promise(UpdateCartItem(id, count), {
       loading: "Loading...",
@@ -33,7 +33,7 @@ export default function CartPage() {
     // data.setProducts(newData.data.products);
   }
 
-  async function removeItem(id) {
+  async function removeItem(id: string) {
     toast.promise(deleteItem(id), {
       loading: "Loading...",
       success: (newData) => {
@@ -95,7 +95,7 @@ export default function CartPage() {
                 <div className="bg-white shadow sm:rounded-lg overflow-hidden border border-gray-200">
                   {data.products && data.products.length > 0 ? (
                     <ul role="list" className="divide-y divide-gray-200">
-                      {data.products.map((item) => (
+                      {data.products.map((item: any) => (
                         <li
                           key={item.product.id}
                           className="p-6 flex flex-col sm:flex-row sm:items-center gap-6 hover:bg-gray-50 transition"
