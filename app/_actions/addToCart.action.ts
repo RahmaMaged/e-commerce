@@ -22,7 +22,9 @@ export async function addItemToCart(productId: string) {
 
 export async function getUserToken() {
   let myCookies = await cookies();
-  let tokenFromCookies = myCookies.get("next-auth.session-token");
+  let tokenFromCookies =
+    myCookies.get("next-auth.session-token") ??
+    myCookies.get("__Secure-next-auth.session-token");
   console.log(tokenFromCookies?.value);
   let decodedUserToken = await decode({
     token: tokenFromCookies?.value!,
