@@ -1,15 +1,37 @@
 "use client";
+interface CartContextType {
+  cardId: string | null;
+  numOfCartItems: number;
+  products: any[] | null;
+  totalCartPrice: number;
+  loading: boolean;
+  setNumOfCartItems: React.Dispatch<React.SetStateAction<number>>;
+  setTotalCartPrice: React.Dispatch<React.SetStateAction<number>>;
+  setProducts: React.Dispatch<React.SetStateAction<any[] | null>>;
+  getData: () => Promise<void>;
+}
+
 import { getUserCart } from "@/app/_actions/getUserCart.action";
 import React, { createContext, useEffect, useState } from "react";
 
-export let cartContext = createContext();
+export let cartContext = createContext<CartContextType>({
+  cardId: null,
+  numOfCartItems: 0,
+  products: null,
+  totalCartPrice: 0,
+  loading: false,
+  setNumOfCartItems: () => {},
+  setTotalCartPrice: () => {},
+  setProducts: () => {},
+  getData: async () => {},
+});
 
 export default function CartContextProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState<any[] | null>(null);
   const [numOfCartItems, setNumOfCartItems] = useState(0);
   const [cardId, setCardId] = useState(null);
   const [totalCartPrice, setTotalCartPrice] = useState(0);

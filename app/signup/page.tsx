@@ -40,7 +40,9 @@ export default function page() {
   return (
     <>
       <div className="container mx-auto max-w-5xl">
-        <h1 className="text-3xl text-center my-5">Sign Up</h1>
+        <h1 className="text-3xl text-center my-5 font-bold text-emerald-600">
+          Sign Up
+        </h1>
 
         <div>
           <form onSubmit={form.handleSubmit(handleSignUp)}>

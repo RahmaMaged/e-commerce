@@ -1,4 +1,3 @@
-import { signUpSchema } from "@/schema/signUpschema";
 import * as z from "zod";
 
 export const signUpSchema = z

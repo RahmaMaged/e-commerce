@@ -2,7 +2,17 @@
 import { getUserWishlist } from "@/app/_actions/getUserWishlist.action";
 import React, { createContext, useEffect, useState } from "react";
 
-export const wishlistContext = createContext();
+interface WishlistContextType {
+  wishlist: any[] | null;
+  loading: boolean;
+  getData: () => Promise<void>;
+}
+
+export const wishlistContext = createContext<WishlistContextType>({
+  wishlist: null,
+  loading: false,
+  getData: async () => {},
+});
 
 export default function WishlistContextProvider({
   children,
